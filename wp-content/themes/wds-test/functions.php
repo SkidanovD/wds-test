@@ -50,6 +50,7 @@ function wds_test_setup() {
 	register_nav_menus(
 		array(
 			'main-menu' => esc_html__( 'Main menu', 'wds-test' ),
+			'user-menu' => esc_html__( 'User menu', 'wds-test' ),
 		)
 	);
 
@@ -144,7 +145,6 @@ function wds_test_scripts() {
 	wp_style_add_data( 'wds-test-style', 'rtl', 'replace' );
 
 	wp_enqueue_script( 'wds-test-swiper-script', get_template_directory_uri() . '/js/swiper-bundle.min.js', array('jquery'), _S_VERSION, true );
-	wp_enqueue_script( 'wds-test-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'wds-test-custom-script', get_template_directory_uri() . '/js/wds-test-custom.js', array('jquery'), _S_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -156,7 +156,7 @@ add_action( 'wp_enqueue_scripts', 'wds_test_scripts' );
 /**
  * Implement the Custom Header feature.
  */
-require get_template_directory() . '/inc/custom-header.php';
+// require get_template_directory() . '/inc/custom-header.php';
 
 /**
  * Custom template tags for this theme.
@@ -179,4 +179,5 @@ require get_template_directory() . '/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
+show_admin_bar(false);
 

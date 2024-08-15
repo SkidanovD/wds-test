@@ -518,7 +518,6 @@ object {
 
 img {
 	height: auto;
-	max-width: 100%;
 }
 
 figure {
@@ -528,31 +527,6 @@ figure {
 table {
 	margin: 0 0 1.5em;
 	width: 100%;
-}
-
-/* Links
---------------------------------------------- */
-a {
-	color: #4169e1;
-}
-
-a:visited {
-	color: #800080;
-}
-
-a:hover,
-a:focus,
-a:active {
-	color: #191970;
-}
-
-a:focus {
-	outline: thin dotted;
-}
-
-a:hover,
-a:active {
-	outline: 0;
 }
 
 /* Forms
@@ -568,6 +542,7 @@ input[type="submit"] {
 	color: rgba(0, 0, 0, 0.8);
 	line-height: 1;
 	padding: 0.6em 1em 0.4em;
+	cursor: pointer;
 }
 
 button:hover,
@@ -797,12 +772,6 @@ textarea {
 	margin-top: 0;
 	padding: 0;
 }
-
-/* Make sure logo link wraps around logo image. */
-.custom-logo-link {
-	display: inline-block;
-}
-
 /* Captions
 --------------------------------------------- */
 .wp-caption {
