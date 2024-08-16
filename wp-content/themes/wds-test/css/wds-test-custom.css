@@ -268,109 +268,38 @@ img {
 button:focus {
    outline: none;
 }
-.button {
+[class*="button-"] {
    font-family: var(--primaryFont);
    font-size: 1em;
    font-weight: 500;
    text-align: center;
+   text-transform: uppercase;
    line-height: 1;
-   border-radius: 2em;
+   border-radius: 0;
    display: inline-block;
-   min-width: 12em;
-   padding: 0.925em 1.7em 1.08em;
+   padding: 1em 1.015em 1.09em;
    cursor: pointer;
    transition: color 0.3s, background-color 0.3s, border-color 0.3s;
 }
 .button-default {
-   color: var(--dark);
-   background-color: var(--yellow);
-   border: 1px solid var(--yellow);
-}
-.button-dark {
-   color: var(--yellow);
-   background-color: var(--dark);
-   border: 1px solid var(--dark);
+   color: var(--white);
+   background-color: var(--gray);
+   border: 1px solid var(--gray);
 }
 .button-white {
-   color: var(--dark);
+   color: var(--black);
    background-color: var(--white);
    border: 1px solid var(--white);
-}
-.button-contour-yellow {
-   color: var(--yellow);
-   background-color: transparent;
-   border: 1px solid var(--yellow);
 }
 .button-contour-dark {
-   color: var(--dark);
-   background-color: transparent;
-   border: 1px solid var(--dark);
-}
-.button-contour-white {
    color: var(--white);
    background-color: transparent;
    border: 1px solid var(--white);
 }
-.button.disabled,
-.button:disabled {
-   filter: brightness(85%) blur(1.5px);
-   pointer-events: none;
-}
 .hover-default:hover {
-   color: var(--yellow);
-   background-color: var(--dark);
-   border-color: var(--dark);
-}
-.hover-yellow:hover {
-   color: var(--dark);
-   background-color: var(--yellow);
-   border-color: var(--yellow);
-}
-.hover-white:hover {
-   color: var(--dark);
-   background-color: var(--white);
-   border-color: var(--white);
-}
-.button-close {
    color: var(--white);
-   font-size: 2.25em;
-   font-weight: 300;
-   line-height: 1;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   width: 1.1em;
-   height: 1.1em;
-   background-color: var(--dark);
-   border: 2px solid var(--dark);
-   border-radius: 50%;
-   padding-bottom: 0.25em;
-   padding-left: 0.025em;
-   position: absolute;
-   top: 1em;
-   right: 1em;
-   transition: color 0.3s, border-color 0.3s, background-color 0.3s;
-}
-.button-close:hover {
-   color: var(--dark);
-   background-color: var(--yellow);
-}
-.button .button-text {
-   display: inline-block;
-   padding-right: 1em;
-   position: relative;
-}
-.button .button-icon {
-   font-size: 1.5em;
-   position: absolute;
-   top: 50%;
-   right: -0.25em;
-   transform: translate(0, calc(0.075em - 50%));
-}
-.button .icon {
-	width: 1.4em;
-	height: 1.4em;
-	margin-right: 0.5em;
+   background-color: var(--brown);
+   border-color: var(--brown);
 }
 .swiper-button-prev,
 .swiper-button-next {
@@ -827,13 +756,72 @@ button:focus {
 }
 
 
+/* ======= Home page ======= */
 
+/* --- Main banner --- */
 
-
-
-
-
-
+.main-banner {
+   height: 39.065vw;
+   padding: 5.5em 0 4%;
+   background-repeat: no-repeat;
+   background-position: center center;
+   background-size: cover;
+}
+.main-banner-wrapper {
+   height: 100%;
+}
+.main-banner .text-wrapper {
+   max-width: 52em;
+   padding: 0 8.5%;
+}
+.main-banner .subtitle  {
+   color: var(--white);
+   margin: 0 0 0.5em;
+}
+.main-banner .title {
+   margin: 0 0 0.35em;
+}
+.main-banner .text {
+   color: var(--white);
+   max-width: 33.7em;
+   margin: 0 0 2.55em;
+}
+.main-banner .button {
+   margin-right: 0.9em;
+}
+@media screen and (max-width: 1060px) {
+   .main-banner {
+      height: 70vw;
+   }
+   .main-banner .text-wrapper {
+      padding: 0;
+   }
+   .main-banner .text {
+      max-width: 31.7em;
+   }
+}
+@media screen and (max-width: 767px) {
+   .main-banner {
+      height: auto;
+      padding: 6.5em 0 15%;
+   }
+   .main-banner-wrapper {
+      min-height: 90vw;
+   }
+   .main-banner .text-wrapper {
+      max-width: 100%;
+      width: 100%;
+   }
+   .main-banner .text {
+      width: 50%;
+   }
+}
+@media screen and (max-width: 400px) {
+   .main-banner .button {
+      width: 100%;
+      margin: 0 0 1em;
+   }
+}
 
 
 

@@ -11,31 +11,40 @@
  *
  * @package wds-test
  */
+$main_banner = get_field('main_banner');
 
 get_header();
 ?>
-
 	<main id="primary" class="site-main">
-      <div class="main-banner" style="height: 750px; background-color: #040404;">
-         <div class="main-banner-wrapper">
-
-         </div>
+      <div class="site-main-wrapper">
+			<?php if (!empty($main_banner['image'])) : ?>
+				<div class="main-banner" style="background-image: url(<?php echo $main_banner['image']['url']; ?>);">
+					<div class="main-banner-wrapper width-container dsflex-ai-center">
+						<div class="text-wrapper">
+							<?php if (!empty($main_banner['subtitle'])) : ?>
+								<div class="subtitle h5"><?php echo $main_banner['subtitle'] ?></div>
+							<?php endif; ?>
+							<?php if (!empty($main_banner['title'])) : ?>
+								<h1 class="title"><?php echo $main_banner['title'] ?></h1>
+							<?php endif; ?>
+							<?php if (!empty($main_banner['text'])) : ?>
+								<div class="text"><?php echo $main_banner['text'] ?></div>
+							<?php endif; ?>
+							<?php if (!empty($main_banner['button_1']) || !empty($main_banner['button_2'])) : ?>
+								<div class="buttons-wrapper">
+									<?php if (!empty($main_banner['button_1'])) : ?>
+										<a href="<?php echo $main_banner['button_1']['url']; ?>" class="button button-white hover-default" title="<?php echo $main_banner['button_1']['title']; ?>"<?php echo !empty($main_banner['button_1']['target']) ? 'target="'.$main_banner['button_1']['target'].'"' : ''; ?>><?php echo $main_banner['button_1']['title']; ?></a>
+									<?php endif; ?>
+									<?php if (!empty($main_banner['button_2'])) : ?>
+										<a href="<?php echo $main_banner['button_2']['url']; ?>" class="button button-contour-dark hover-default" title="<?php echo $main_banner['button_2']['title']; ?>"<?php echo !empty($main_banner['button_2']['target']) ? 'target="'.$main_banner['button_2']['target'].'"' : ''; ?>><?php echo $main_banner['button_2']['title']; ?></a>
+									<?php endif; ?>
+								</div>
+							<?php endif; ?>
+						</div>
+					</div>
+				</div>
+			<?php endif; ?>
       </div>
-
-		<?php
-		while ( have_posts() ) :
-			the_post();
-
-			get_template_part( 'template-parts/content', 'page' );
-
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
-
-		endwhile; // End of the loop.
-		?>
-
 	</main><!-- #main -->
 
 <?php
