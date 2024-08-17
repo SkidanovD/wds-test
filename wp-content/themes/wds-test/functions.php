@@ -123,8 +123,41 @@ add_action( 'after_setup_theme', 'wds_test_content_width', 0 );
 function wds_test_widgets_init() {
 	register_sidebar(
 		array(
-			'name'          => esc_html__( 'Footer 1', 'wds-test' ),
+			'name'          => esc_html__( 'Footer-1', 'wds-test' ),
 			'id'            => 'footer-1',
+			'description'   => esc_html__( 'Add widgets here.', 'wds-test' ),
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Footer-2', 'wds-test' ),
+			'id'            => 'footer-2',
+			'description'   => esc_html__( 'Add widgets here.', 'wds-test' ),
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Footer-3', 'wds-test' ),
+			'id'            => 'footer-3',
+			'description'   => esc_html__( 'Add widgets here.', 'wds-test' ),
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Footer-4', 'wds-test' ),
+			'id'            => 'footer-4',
 			'description'   => esc_html__( 'Add widgets here.', 'wds-test' ),
 			'before_widget' => '<div id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</div>',
@@ -179,5 +212,4 @@ require get_template_directory() . '/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
-show_admin_bar(false);
 

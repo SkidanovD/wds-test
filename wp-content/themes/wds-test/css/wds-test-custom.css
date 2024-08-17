@@ -1181,25 +1181,116 @@ button:focus {
 }
 
 
-
-
-
-
-
-
-
-
+/* ======= Site footer ======= */
 
 .site-footer {
    background-color: #eaeaea;
+   padding: 3.1% 0;
 }
-
-
-
-
-
-
-
+.site-footer .widget {
+   margin: 0 0 1.1em;
+}
+.site-footer .info-column {
+   line-height: 1.43;
+   width: 24.2%;
+}
+.site-footer .info-column figure {
+   margin: 0;
+}
+.site-footer .info-column .widget:last-child {
+   line-height: 2.1;
+   margin-top: 1.65em;
+}
+.site-footer .posts-column {
+   width: 32.5%;
+}
+.site-footer .posts-column .widget {
+   margin: 0 0 0.4em;
+}
+.footer-post {
+   border-bottom: 1px solid var(--gray-light);
+   margin-bottom: 0.45em;
+   padding: 0.5em 0;
+}
+.footer-post .image-column {
+   width: 19.75%;
+}
+.footer-post .image-wrapper {
+   height: 4.835vw;
+   max-height: 4.64em;
+   overflow: hidden;
+}
+.footer-post img {
+   display: block;
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+   object-position: center center;
+   transition: transform 0.5s;
+}
+.footer-post:hover img {
+   transform: scale(1.1) rotate(10deg);
+}
+.footer-post .text-column {
+   width: 76.5%;
+   padding-right: 10%;
+}
+.footer-post .title {
+   color: var(--extra-dark);
+   font-family: var(--secondFont);
+   text-transform: uppercase;
+   line-height: 1.43;
+   margin: 0.3em 0;
+}
+.footer-post .date {
+   color: var(--gray);
+   opacity: 0.5;
+}
+.site-footer .stores-column {
+   width: 15.6%;
+}
+.site-footer .links-column {
+   width: 23%;
+}
+.site-footer .menu {
+   list-style: none;
+   margin: 0;
+   padding: 0;
+}
+.site-footer .menu-item {
+   margin: 0.375em 0;
+}
+.site-footer .menu-item a {
+   color: var(--gray);
+   font-family: var(--primaryFont);
+   text-transform: none;
+   line-height: 1.43;
+}
+.site-footer .menu-item a:hover {
+   text-decoration: underline;
+}
+@media screen and (max-width: 767px) {
+   .site-footer {
+      padding: 3.5em 0 2.5em;
+   }
+   .site-footer-wrapper {
+      flex-wrap: wrap;
+   }
+   .site-footer .info-column,
+   .site-footer .posts-column,
+   .site-footer .stores-column,
+   .site-footer .links-column {
+      width: 47%;
+   }
+}
+@media screen and (max-width: 520px) {
+   .site-footer .info-column,
+   .site-footer .posts-column,
+   .site-footer .stores-column,
+   .site-footer .links-column {
+      width: 100%;
+   }
+}
 
 
 

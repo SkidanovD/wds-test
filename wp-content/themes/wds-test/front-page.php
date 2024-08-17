@@ -244,11 +244,6 @@ get_header();
 												<?php if (!empty($jewelry_design_blog['button_title'])) : ?>
 													<a href="<?php echo $jdb_post->guid; ?>" class="link"><?php echo $jewelry_design_blog['button_title']; ?></a>
 												<?php endif; ?>
-
-
-
-
-
 											</div>
 										</div>
 									<?php endforeach; ?>
@@ -261,7 +256,6 @@ get_header();
 						</div>
 					</div>
 				</div>
-
 			<?php endif; ?>
       </div>
 	</main><!-- #main -->
