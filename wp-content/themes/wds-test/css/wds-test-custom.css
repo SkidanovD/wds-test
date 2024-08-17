@@ -1066,7 +1066,133 @@ button:focus {
    }
 }
 
+/* --- Jewelry Design Blog --- */
 
+.jewelry-blog-block {
+   padding: 3% 0 5.3%;
+}
+.jewelry-blog-subtitle {
+   text-align: center;
+   margin: 0 0 0.45em;
+}
+.jewelry-blog-title {
+   margin: 0 0 0.325em;
+}
+.jewelry-blog-text {
+   text-align: center;
+   margin-bottom: 4.4%;
+}
+.jewerly-blog-slider {
+   padding: 0 4.0175%;
+   position: relative;
+}
+.jewerly-blog-post {
+   text-align: center;
+}
+.jewerly-blog-post .image-wrapper {
+   position: relative;
+   height: 19.36vw;
+   max-height: 18.6em;
+}
+.jewerly-blog-post .image-wrapper img {
+   display: block;
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+   object-position: center center;
+}
+.jewerly-blog-post .date {
+   position: absolute;
+   top: 5.1%;
+   left: 4%;
+   background-color: var(--white);
+   width: 3.3em;
+   padding: 0.2em 0 0.35em;
+}
+.jewerly-blog-post .day {
+   color: var(--extra-dark);
+   font-size: 1.714em;
+   text-align: center;
+   line-height: 1.04;
+   margin-bottom: 0.1em;
+}
+.jewerly-blog-post .month {
+   color: var(--extra-dark);
+   font-size: 0.928em;
+   text-align: center;
+   text-transform: uppercase;
+   line-height: 1.15;
+}
+.jewerly-blog-post .category {
+   color: var(--white);
+   font-size: 0.857em;
+   text-align: center;
+   text-transform: uppercase;
+   background-color: var(--brown-light);
+   width: max-content;
+   margin: -1.3em auto 1.25em;
+   padding: 0.15em 0.9em;
+   position: relative;
+   z-index: 5;
+}
+.jewerly-blog-post .title {
+   text-align: center;
+   text-transform: uppercase;
+   margin: 0;
+}
+.jewerly-blog-post .author {
+   color: #77777780;
+   text-align: center;
+   margin-bottom: 0.5em;
+}
+.jewerly-blog-post .author img {
+   border-radius: 50%;
+   width: 20px;
+   height: 20px;
+   margin: 0 0.65em 0.3em;
+   position: relative;
+   top: 0.6em;
+}
+.jewerly-blog-post .text {
+   text-align: center;
+   margin-bottom: 1.5em;
+}
+.jewerly-blog-post .link {
+   color: var(--brown-light);
+   font-weight: 500;
+   text-transform: uppercase;
+}
+.jewerly-blog-post .link:hover {
+   color: var(--gray-dark);
+}
+@media screen and (max-width: 1060px) {
+   .jewerly-blog-post .image-wrapper {
+      height: 29.5vw;
+      max-height: 100%;
+   }
+}
+@media screen and (max-width: 767px) {
+   .jewerly-blog-slider {
+      padding: 0 2.5em;
+   }
+   .jewerly-blog-post .image-wrapper {
+      height: 56.4vw;
+   }
+}
+
+
+
+
+
+
+
+
+
+
+
+.site-footer {
+   background-color: #eaeaea;
+}
 
 
 

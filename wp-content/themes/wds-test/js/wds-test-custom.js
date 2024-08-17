@@ -97,5 +97,29 @@ jQuery(document).ready(function($) {
     // ======= Featured slider end ======= //
 
     
+    // ======= Featured slider ======= //    
+    const jewelrydSlider = new Swiper('.jewelry-blog-block .swiper', {
+        speed: 400,
+        slidesPerView: 1,
+        watchOverflow: true,
+        spaceBetween: 10,
+        breakpoints: {
+            768: {
+                slidesPerView: 2,
+                spaceBetween: 15
+            },
+            1061: {
+                slidesPerView: 3,
+                spaceBetween: 20
+            }
+        },
+        navigation: {
+            prevEl: '.jewelry-blog-block .swiper-button-prev',
+            nextEl: '.jewelry-blog-block .swiper-button-next',
+        },
+    });
+    // ======= Featured slider end ======= //
+
+    
     
 });

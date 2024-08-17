@@ -36,6 +36,7 @@ $args_np = [
 	'order' => 'DESC',
 ];
 $new_products = wc_get_products($args_np);
+$jewelry_design_blog = get_field('jewelry_design_blog');
 
 get_header();
 ?>
@@ -195,9 +196,73 @@ get_header();
 					</div>
 				</div>
 			<?php endif; ?>
-			
+			<?php if (!empty($jewelry_design_blog['posts_list'])) : ?>
+				<div class="jewelry-blog-block">
+					<div class="jewelry-blog-wrapper width-container">
+						<?php if (!empty($jewelry_design_blog['subtitle'])) : ?>
+							<div class="jewelry-blog-subtitle h5"><?php echo $jewelry_design_blog['subtitle']; ?></div>
+						<?php endif; ?>
+						<?php if (!empty($jewelry_design_blog['title'])) : ?>
+							<h2 class="jewelry-blog-title"><?php echo $jewelry_design_blog['title']; ?></h2>
+						<?php endif; ?>
+						<?php if (!empty($jewelry_design_blog['text'])) : ?>
+							<div class="jewelry-blog-text"><?php echo $jewelry_design_blog['text']; ?></div>
+						<?php endif; ?>
+						<div class="jewerly-blog-slider">
+							<div class="swiper">
+								<div class="swiper-wrapper">
+									<?php foreach ($jewelry_design_blog['posts_list'] as $jdb_post) : ?>
+										<?php
+											$jdb_cat = get_the_category($jdb_post->ID);
+											$first_name = get_the_author_meta('first_name', $jdb_post->post_author);
+											$last_name = get_the_author_meta('last_name', $jdb_post->post_author);
+											$avatar = get_avatar($jdb_post->post_author);
+											$content = strip_tags($jdb_post->post_content);
+											$day = get_the_date('d', $jdb_post->ID);
+											$month = get_the_date('M', $jdb_post->ID);
+											if (strlen($content) > 147) {
+												$content = substr($content, 0, 147,) . '...';
+											}
+										?>
+										<div class="swiper-slide">
+											<div class="jewerly-blog-post">
+												<div class="image-wrapper">
+													<div class="date">
+														<p class="day"><?php echo $day; ?></p>
+														<p class="month"><?php echo $month; ?></p>
+													</div>
+													<?php echo get_the_post_thumbnail( $jdb_post->ID, 'full'); ?>
+												</div>
+												<?php if (!empty($jdb_cat)) : ?>
+													<div class="category">
+														<?php echo $jdb_cat[0]->name; ?>
+													</div>
+												<?php endif; ?>
+												<h3 class="title"><?php echo $jdb_post->post_title; ?></h3>
+												<div class="author"><?php echo !empty($jewelry_design_blog['author_label']) ? $jewelry_design_blog['author_label'] : ''; ?> <?php echo $avatar; ?> <?php echo substr($first_name, 0, 1,) . '. ' . $last_name; ?></div>
+												<div class="text"><?php echo $content; ?></div>
+												<?php if (!empty($jewelry_design_blog['button_title'])) : ?>
+													<a href="<?php echo $jdb_post->guid; ?>" class="link"><?php echo $jewelry_design_blog['button_title']; ?></a>
+												<?php endif; ?>
 
 
+
+
+
+											</div>
+										</div>
+									<?php endforeach; ?>
+								</div>
+							</div>
+							<div class="swiper-nav-wrapper">
+								<div class="swiper-button-prev"></div>
+								<div class="swiper-button-next"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			<?php endif; ?>
       </div>
 	</main><!-- #main -->
 
