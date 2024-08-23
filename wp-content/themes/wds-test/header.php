@@ -14,7 +14,6 @@
 	if( $custom_logo_id ){
 		$logo_img = wp_get_attachment_image( $custom_logo_id, 'full', false, array(
 			'class'    => 'custom-logo image-block-contain',
-			'itemprop' => 'logo',
 			'loading' => 'lazy'
 		) );
 	}

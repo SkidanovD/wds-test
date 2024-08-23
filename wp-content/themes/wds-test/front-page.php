@@ -11,64 +11,62 @@
  *
  * @package wds-test
  */
-$main_banner = get_field('main_banner');
-$featured_product = get_field('featured_product');
-if (!empty($featured_product['category'])) {
-	$args = [
+	$main_banner = get_field('main_banner');
+	$featured_product = get_field('featured_product');
+	if (!empty($featured_product['category'])) {
+		$args = [
+			'status' => 'publish',
+			'limit'  => $featured_product['number_of_products'],
+			'category' => $featured_product['category']->slug,
+			'order' => 'ASC',
+		];
+		$featured_product_slider = wc_get_products($args);
+	}
+	$special_offer = get_field('special_offer');
+	$args_fp = [
 		'status' => 'publish',
-    	'limit'  => $featured_product['number_of_products'],
-		'category' => $featured_product['category']->slug,
+		'limit'  => 3,
 		'order' => 'ASC',
+		'featured' => true,
 	];
-	$featured_product_slider = wc_get_products($args);
-}
-$special_offer = get_field('special_offer');
-$args_fp = [
-	'status' => 'publish',
-	'limit'  => 3,
-	'order' => 'ASC',
-	'terms'    => 'featured',
-];
-$featured_products = wc_get_products($args_fp);
-$args_np = [
-	'status' => 'publish',
-	'limit'  => 3,
-	'order' => 'DESC',
-];
-$new_products = wc_get_products($args_np);
-$jewelry_design_blog = get_field('jewelry_design_blog');
+	$featured_products = wc_get_products($args_fp);
+	$args_np = [
+		'status' => 'publish',
+		'limit'  => 3,
+		'order' => 'DESC',
+	];
+	$new_products = wc_get_products($args_np);
+	$jewelry_design_blog = get_field('jewelry_design_blog');
 
-get_header();
+	get_header();
 ?>
 	<main id="primary" class="site-main">
       <div class="site-main-wrapper">
-			<?php if (!empty($main_banner['image'])) : ?>
-				<div class="main-banner" style="background-image: url(<?php echo $main_banner['image']['url']; ?>);">
-					<div class="main-banner-wrapper width-container dsflex-ai-center">
-						<div class="text-wrapper">
-							<?php if (!empty($main_banner['subtitle'])) : ?>
-								<div class="subtitle h5"><?php echo $main_banner['subtitle'] ?></div>
-							<?php endif; ?>
-							<?php if (!empty($main_banner['title'])) : ?>
-								<h1 class="title"><?php echo $main_banner['title'] ?></h1>
-							<?php endif; ?>
-							<?php if (!empty($main_banner['text'])) : ?>
-								<div class="text"><?php echo $main_banner['text'] ?></div>
-							<?php endif; ?>
-							<?php if (!empty($main_banner['button_1']) || !empty($main_banner['button_2'])) : ?>
-								<div class="buttons-wrapper">
-									<?php if (!empty($main_banner['button_1'])) : ?>
-										<a href="<?php echo $main_banner['button_1']['url']; ?>" class="button button-white hover-default" title="<?php echo $main_banner['button_1']['title']; ?>"<?php echo !empty($main_banner['button_1']['target']) ? 'target="'.$main_banner['button_1']['target'].'"' : ''; ?>><?php echo $main_banner['button_1']['title']; ?></a>
-									<?php endif; ?>
-									<?php if (!empty($main_banner['button_2'])) : ?>
-										<a href="<?php echo $main_banner['button_2']['url']; ?>" class="button button-contour-dark hover-default" title="<?php echo $main_banner['button_2']['title']; ?>"<?php echo !empty($main_banner['button_2']['target']) ? 'target="'.$main_banner['button_2']['target'].'"' : ''; ?>><?php echo $main_banner['button_2']['title']; ?></a>
-									<?php endif; ?>
-								</div>
-							<?php endif; ?>
-						</div>
+			<div class="main-banner"<?php echo !empty($main_banner['image']['url']) ? ' style="background-image: url(' . $main_banner['image']['url'] . ')"' : ''; ?>>
+				<div class="main-banner-wrapper width-container dsflex-ai-center">
+					<div class="text-wrapper">
+						<?php if (!empty($main_banner['subtitle'])) : ?>
+							<div class="subtitle h5"><?php echo $main_banner['subtitle'] ?></div>
+						<?php endif; ?>
+						<?php if (!empty($main_banner['title'])) : ?>
+							<h1 class="title"><?php echo $main_banner['title'] ?></h1>
+						<?php endif; ?>
+						<?php if (!empty($main_banner['text'])) : ?>
+							<div class="text"><?php echo $main_banner['text'] ?></div>
+						<?php endif; ?>
+						<?php if (!empty($main_banner['button_1']) || !empty($main_banner['button_2'])) : ?>
+							<div class="buttons-wrapper">
+								<?php if (!empty($main_banner['button_1'])) : ?>
+									<a href="<?php echo $main_banner['button_1']['url']; ?>" class="button button-white hover-white" title="<?php echo $main_banner['button_1']['title']; ?>"<?php echo !empty($main_banner['button_1']['target']) ? 'target="'.$main_banner['button_1']['target'].'"' : ''; ?>><?php echo $main_banner['button_1']['title']; ?></a>
+								<?php endif; ?>
+								<?php if (!empty($main_banner['button_2'])) : ?>
+									<a href="<?php echo $main_banner['button_2']['url']; ?>" class="button button-outline-dark hover-outline-dark" title="<?php echo $main_banner['button_2']['title']; ?>"<?php echo !empty($main_banner['button_2']['target']) ? 'target="'.$main_banner['button_2']['target'].'"' : ''; ?>><?php echo $main_banner['button_2']['title']; ?></a>
+								<?php endif; ?>
+							</div>
+						<?php endif; ?>
 					</div>
 				</div>
-			<?php endif; ?>
+			</div>
 			<?php if (!empty($featured_product_slider)) : ?>
 				<div class="featured-product-block">
 					<div class="featured-product-wrapper width-container">
@@ -90,6 +88,11 @@ get_header();
 										<?php endif; ?>
 										<?php if (!empty($featured_product['text_banner'])) : ?>
 											<div class="banner-text"><?php echo $featured_product['text_banner']; ?></div>
+										<?php endif; ?>
+										<?php if (!empty($featured_product['link_banner'])) : ?>
+											<div class="banner-link-wrapper">
+												<a href="<?php echo $featured_product['link_banner']['url']; ?>" class="banner-link" title="<?php echo $featured_product['link_banner']['title']; ?>"<?php echo !empty($featured_product['link_banner']['target']) ? 'target="'.$featured_product['link_banner']['target'].'"' : ''; ?>><?php echo $featured_product['link_banner']['title']; ?></a>
+											</div>
 										<?php endif; ?>
 									</div>
 								</div>
@@ -225,7 +228,11 @@ get_header();
 											}
 										?>
 										<div class="swiper-slide">
+										<?php if (empty($jewelry_design_blog['button_title'])) : ?>
+											<a href="<?php echo $jdb_post->guid; ?>" class="jewerly-blog-post jewerly-blog-post-link">
+										<?php else: ?>
 											<div class="jewerly-blog-post">
+										<?php endif; ?>
 												<div class="image-wrapper">
 													<div class="date">
 														<p class="day"><?php echo $day; ?></p>
@@ -243,8 +250,12 @@ get_header();
 												<div class="text"><?php echo $content; ?></div>
 												<?php if (!empty($jewelry_design_blog['button_title'])) : ?>
 													<a href="<?php echo $jdb_post->guid; ?>" class="link"><?php echo $jewelry_design_blog['button_title']; ?></a>
-												<?php endif; ?>
+												<?php endif; ?>		
+										<?php if (empty($jewelry_design_blog['button_title'])) : ?>
+											</a>
+										<?php else: ?>
 											</div>
+										<?php endif; ?>
 										</div>
 									<?php endforeach; ?>
 								</div>

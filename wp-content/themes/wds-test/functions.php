@@ -126,10 +126,10 @@ function wds_test_widgets_init() {
 			'name'          => esc_html__( 'Footer-1', 'wds-test' ),
 			'id'            => 'footer-1',
 			'description'   => esc_html__( 'Add widgets here.', 'wds-test' ),
-			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'before_widget' => '<div id="%1$s" class="widget footer-widget %2$s">',
 			'after_widget'  => '</div>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
+			'before_title'  => '<h4 class="footer-widget-title">',
+			'after_title'   => '</h4>',
 		)
 	);
 	register_sidebar(
@@ -137,10 +137,10 @@ function wds_test_widgets_init() {
 			'name'          => esc_html__( 'Footer-2', 'wds-test' ),
 			'id'            => 'footer-2',
 			'description'   => esc_html__( 'Add widgets here.', 'wds-test' ),
-			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'before_widget' => '<div id="%1$s" class="widget footer-widget %2$s">',
 			'after_widget'  => '</div>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
+			'before_title'  => '<h4 class="footer-widget-title">',
+			'after_title'   => '</h4>',
 		)
 	);
 	register_sidebar(
@@ -148,10 +148,10 @@ function wds_test_widgets_init() {
 			'name'          => esc_html__( 'Footer-3', 'wds-test' ),
 			'id'            => 'footer-3',
 			'description'   => esc_html__( 'Add widgets here.', 'wds-test' ),
-			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'before_widget' => '<div id="%1$s" class="widget footer-widget %2$s">',
 			'after_widget'  => '</div>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
+			'before_title'  => '<h4 class="footer-widget-title">',
+			'after_title'   => '</h4>',
 		)
 	);
 	register_sidebar(
@@ -159,10 +159,10 @@ function wds_test_widgets_init() {
 			'name'          => esc_html__( 'Footer-4', 'wds-test' ),
 			'id'            => 'footer-4',
 			'description'   => esc_html__( 'Add widgets here.', 'wds-test' ),
-			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'before_widget' => '<div id="%1$s" class="widget footer-widget %2$s">',
 			'after_widget'  => '</div>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
+			'before_title'  => '<h4 class="footer-widget-title">',
+			'after_title'   => '</h4>',
 		)
 	);
 }
@@ -173,12 +173,12 @@ add_action( 'widgets_init', 'wds_test_widgets_init' );
  */
 function wds_test_scripts() {
 	wp_enqueue_style( 'wds-test-style', get_stylesheet_uri(), array(), _S_VERSION );
-	wp_enqueue_style( 'wds-test-swiper-style', get_template_directory_uri() . '/css/swiper-bundle.css', array(), _S_VERSION );
-	wp_enqueue_style( 'wds-test-custom-style', get_template_directory_uri() . '/css/wds-test-custom.css', array(), _S_VERSION );
+	wp_enqueue_style( 'wds-test-swiper-style', get_template_directory_uri() . '/css/swiper-bundle.min.css', array(), _S_VERSION );
+	wp_enqueue_style( 'wds-test-custom-style', get_template_directory_uri() . '/css/wds-test-custom.min.css', array(), _S_VERSION );
 	wp_style_add_data( 'wds-test-style', 'rtl', 'replace' );
 
 	wp_enqueue_script( 'wds-test-swiper-script', get_template_directory_uri() . '/js/swiper-bundle.min.js', array('jquery'), _S_VERSION, true );
-	wp_enqueue_script( 'wds-test-custom-script', get_template_directory_uri() . '/js/wds-test-custom.js', array('jquery'), _S_VERSION, true );
+	wp_enqueue_script( 'wds-test-custom-script', get_template_directory_uri() . '/js/wds-test-custom.min.js', array('jquery'), _S_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -186,10 +186,10 @@ function wds_test_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'wds_test_scripts' );
 
-/**
- * Implement the Custom Header feature.
- */
-// require get_template_directory() . '/inc/custom-header.php';
+function wds_test_support() {
+	remove_theme_support( 'widgets-block-editor' );
+}
+add_action( 'after_setup_theme', 'wds_test_support' );
 
 /**
  * Custom template tags for this theme.
@@ -212,4 +212,3 @@ require get_template_directory() . '/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
-

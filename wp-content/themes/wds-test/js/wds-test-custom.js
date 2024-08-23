@@ -73,6 +73,18 @@ jQuery(document).ready(function($) {
     // ======= Header menu end ======= //
 
     
+    // ======= Featured banner link ======= //
+    $('.featured-product-block .banner').hover(
+        function() {
+            $(this).find('.banner-link-wrapper').stop().slideDown(500);
+        },
+        function() {
+            $(this).find('.banner-link-wrapper').stop().slideUp(500);
+        }
+    );
+    // ======= Featured banner link end ======= //
+
+    
     // ======= Featured slider ======= //    
     const featuredSlider = new Swiper('.featured-product-block .swiper', {
         speed: 400,
@@ -97,7 +109,7 @@ jQuery(document).ready(function($) {
     // ======= Featured slider end ======= //
 
     
-    // ======= Featured slider ======= //    
+    // ======= Jewelry slider ======= //    
     const jewelrydSlider = new Swiper('.jewelry-blog-block .swiper', {
         speed: 400,
         slidesPerView: 1,
@@ -118,7 +130,7 @@ jQuery(document).ready(function($) {
             nextEl: '.jewelry-blog-block .swiper-button-next',
         },
     });
-    // ======= Featured slider end ======= //
+    // ======= Jewelry slider end ======= //
 
     
     

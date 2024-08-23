@@ -114,6 +114,7 @@
 }
 :root {
    --black: #000000;
+   --black-light: #040404;
    --brown: #9d6c33;
    --brown-light: #c3935b;
    --brown-dark: #644521;
@@ -293,15 +294,23 @@ button:focus {
    background-color: var(--white);
    border: 1px solid var(--white);
 }
-.button-contour-dark {
+.button-outline-dark {
    color: var(--white);
    background-color: transparent;
    border: 1px solid var(--white);
 }
 .hover-default:hover {
    color: var(--white);
-   background-color: var(--brown);
-   border-color: var(--brown);
+   background-color: var(--black);
+   border-color: var(--black);
+}
+.hover-white:hover {
+   color: var(--white);
+   background-color: transparent;
+}
+.hover-outline-dark:hover {
+   color: var(--black);
+   background-color: var(--white);
 }
 .swiper-button-prev,
 .swiper-button-next {
@@ -365,7 +374,7 @@ button:focus {
 }
 .opened .bar-bot {
    transform: rotate(-45deg);
-   transform-origin: 0% 100%;
+   transform-origin: 0 100%;
 }
 @media screen and (max-width: 1060px) {
    .nav-toggle {
@@ -751,6 +760,7 @@ button:focus {
    background-repeat: no-repeat;
    background-position: center center;
    background-size: cover;
+   background-color: var(--black-light);
 }
 .main-banner-wrapper {
    height: 100%;
@@ -789,6 +799,8 @@ button:focus {
    .main-banner {
       height: auto;
       padding: 6.5em 0 15%;
+      background-position: 67% 0;
+      background-size: auto 100%;
    }
    .main-banner-wrapper {
       min-height: 90vw;
@@ -829,7 +841,7 @@ button:focus {
 }
 .featured-product-block .text-wrapper {
    width: 100%;
-   padding: 2% 3.8% 7.5%;
+   padding: 2% 3.8% 5.7%;
 }
 .featured-product-block .banner-title {
    font-family: var(--primaryFont);
@@ -838,6 +850,16 @@ button:focus {
 }
 .featured-product-block .banner-text {
    text-align: center;
+   margin-bottom: 1.8%;
+}
+.featured-product-block .banner-link-wrapper {
+   text-align: center;
+   display: none;
+   padding-top: 2.25%;
+}
+.featured-product-block .banner-link {
+   color: var(--black);
+   text-transform: uppercase;
 }
 .featured-product-block .slider-column {
    width: 74.35%;
@@ -1089,10 +1111,14 @@ button:focus {
 .jewerly-blog-post {
    text-align: center;
 }
+.jewerly-blog-post-link {
+   display: block;
+}
 .jewerly-blog-post .image-wrapper {
    position: relative;
    height: 19.36vw;
    max-height: 18.6em;
+   overflow: hidden;
 }
 .jewerly-blog-post .image-wrapper img {
    display: block;
@@ -1100,6 +1126,10 @@ button:focus {
    height: 100%;
    object-fit: cover;
    object-position: center center;
+   transition: transform 0.5s;
+}
+.jewerly-blog-post-link:hover .image-wrapper img {
+   transform: scale(1.2) rotate(7deg);
 }
 .jewerly-blog-post .date {
    position: absolute;
@@ -1108,6 +1138,7 @@ button:focus {
    background-color: var(--white);
    width: 3.3em;
    padding: 0.2em 0 0.35em;
+   z-index: 1;
 }
 .jewerly-blog-post .day {
    color: var(--extra-dark);
@@ -1154,6 +1185,7 @@ button:focus {
    top: 0.6em;
 }
 .jewerly-blog-post .text {
+   color: var(--gray);
    text-align: center;
    margin-bottom: 1.5em;
 }
@@ -1185,27 +1217,39 @@ button:focus {
 
 .site-footer {
    background-color: #eaeaea;
-   padding: 3.1% 0;
+   padding: 3.0% 0;
 }
-.site-footer .widget {
-   margin: 0 0 1.1em;
+.footer-widget {
+   margin: 0 0 0.7em;
+}
+.footer-widget-title {
+   text-transform: uppercase;
+   margin: 0.5em 0 1.0em;
 }
 .site-footer .info-column {
    line-height: 1.43;
    width: 24.2%;
 }
-.site-footer .info-column figure {
-   margin: 0;
+.footer-widget.widget_media_image a {
+   display: block;
+   width: 7.8em;
 }
-.site-footer .info-column .widget:last-child {
-   line-height: 2.1;
+.info-column .footer-widget:last-child {
+   line-height: 2.2;
    margin-top: 1.65em;
+}
+.site-footer .info-column .widget:last-child img {
+   position: relative;
+   top: 0.3em;
 }
 .site-footer .posts-column {
    width: 32.5%;
 }
-.site-footer .posts-column .widget {
+.posts-column .footer-widget {
    margin: 0 0 0.4em;
+}
+.posts-column .footer-widget-title {
+   margin: 0.5em 0;
 }
 .footer-post {
    border-bottom: 1px solid var(--gray-light);
