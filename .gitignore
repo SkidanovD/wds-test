@@ -1,0 +1,10 @@
+
+# ignore log files and databases
+*.log
+*.sql
+*.sqlite
+/.idea/*
+node_modules/
+package-lock.json
+wp-content/themes/webdesignsuntheme-redesign/node_modules/
+wp-content/themes/webdesignsuntheme-redesign/package-lock.json
