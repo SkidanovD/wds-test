@@ -131,7 +131,4 @@ jQuery(document).ready(function($) {
         },
     });
     // ======= Jewelry slider end ======= //
-
-    
-    
 });
